@@ -103,3 +103,7 @@ iRuleの編集
 未検証
 - [bigip_vlan - Manage VLANs on a BIG-IP system](./bigip_vlan.md)
 未検証
+
+# 冗長構成で設定を同期させるには
+冗長構成の場合、Device GroupsのAutomatic Syncにチェックを入れることで、変更が自動で同期されます。
+こうすることで、１台の機器に対してAnsibleで変更した内容が、自動で他の機器に同期されます。
