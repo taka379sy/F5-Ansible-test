@@ -31,11 +31,11 @@ unsupported parameter for module: ntp_server
         validate_certs: "no"
         timezone: "Japan"
       delegate_to: localhost
-      register: ansible_facts
-    - debug: var=ansible_facts
+      register: result
+    - debug: var=result.stdout_lines
 ```
 ## 実行
-コマンドの実行結果は、ansible_factsを出力すればよさそうです。
+コマンドの実行結果は、resultを出力すればよさそうです。
 ```
 # ansible-playbook -i ~/work/f5-test/inventory/hosts -l bigip1 bigip_device_ntp.yml --ask-vault-pass
 Vault password:
