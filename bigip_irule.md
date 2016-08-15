@@ -41,11 +41,11 @@ when LB_FAILED {
         state: present
         validate_certs: no
       delegate_to: localhost
-      register: ansible_facts
-    - debug: var=ansible_facts
+      register: result
+    - debug: var=result.stdout_lines
 ```
 ## 実行
-コマンドの実行結果は、ansible_factsを出力すればよさそうです。
+コマンドの実行結果は、resultを出力すればよさそうです。
 ```
 # ansible-playbook -i ~/work/f5-test/inventory/hosts -l bigip1 bigip_irule.yml --ask-vault-pass
 Vault password:
