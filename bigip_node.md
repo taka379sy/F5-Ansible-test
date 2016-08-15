@@ -52,6 +52,13 @@ ValueError: too many values to unpack
 ansible2.2.0に含まれるモジュール
 (/usr/lib/python2.7/site-packages/ansible/modules/extras/network/f5/bigip_node.py
 であればエラーにならなかったので、~/work/f5-test/library/bigip_node.pyは削除します。
+⇒ソース（bigip_node.py）を以下のように修正すれば動きました。
+修正前）
+    (server, user, password, state, partition, validate_certs ) = f5_parse_arguments(module)
+
+修正後）
+    (server, user, password, state, partition, validate_certs, server_port) = f5_parse_arguments(module)
+
 
 コマンドの実行結果は、resultを出力すればよさそうです。
 ```
