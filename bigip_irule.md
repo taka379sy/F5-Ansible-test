@@ -42,7 +42,7 @@ when LB_FAILED {
         validate_certs: no
       delegate_to: localhost
       register: result
-    - debug: var=result.stdout_lines
+    - debug: var=result
 ```
 ## 実行
 コマンドの実行結果は、resultを出力すればよさそうです。
