@@ -30,6 +30,7 @@ bigip1 ansible_host=172.23.141.62
 ```
 
 ### BIG-IP接続認証用の変数ファイル作成
+認証用のID/パスワードのファイルが平文だと、セキュリティ的に問題があるので、Ansibleの[vault](http://docs.ansible.com/ansible/playbooks_vault.html)の機能で暗号化しておく。
 
 ```
 # cd ~/work/f5-test
