@@ -61,8 +61,8 @@ iRuleの編集
 未検証
 - [bigip_monitor_tcp - Manages F5 BIG-IP LTM tcp monitors](./bigip_monitor_tcp.md)
 未検証
-- [bigip_node - Manages F5 BIG-IP LTM nodes](./bigip_node.md)
-未検証
+- [bigip_node - Manages F5 BIG-IP LTM nodes](./bigip_node.md)  
+nodeの管理を行う。
 - [bigip_partition - Manage BIG-IP partitions](./bigip_partition.md)
 未検証
 - [bigip_pool - Manages F5 BIG-IP LTM pools](./bigip_pool.md)
