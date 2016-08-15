@@ -61,3 +61,58 @@ PlayBookを実行するときは、--ask-vault-passのオプションをつけ�
 ```
 ansible-playbook xxx.yml --ask-vault-pass
 ```
+
+### 他の接続認証の方法についてのメモ
+
+今回は上記の認証方法で実行しますが、他にも方法があるのでメモ。  
+※セキュリティ的に、パスワードを平文でファイルには保存しない方針で。
+
+#### ssh接続を鍵認証方式にする
+
+BIG-IPの中身はRHELベースかと推測されますので、同じように設定可能。  
+未検証ではあるが、設定のバックアップファイル(ucs)の中に、/homeとか/rootが含まれているようなので、
+ハード故障・交換・ucsからのリカバリ時でも、鍵の再設定は不要と思われる。   
+ただ、BIGのAnsibleモジュールは、REST APIのiControlをキックするようなので、
+API用の認証ID・パスワードは別に考える必要がある。
+
+#### ssh接続の認証を、コマンドラインオプションによって、毎回聞かれるようにする。
+
+コマンドラインオプションで、ユーザ・パスワードを入力する。
+
+```
+# ansible-playbook xxx.yml -u testuser1 -k ・・・
+SSH password:
+```
+
+鍵認証方式と同様、API用の認証ID・パスワードは別に考える必要がある。
+
+#### iControlの認証用のパスワードを実行時に毎回聞かれるようにする。
+
+Ansibleの[Promptsの機能](http://docs.ansible.com/ansible/playbooks_prompts.html)
+を使用して、実行時に聞かれるようにする。  
+以下は使用例：
+```
+- hosts: bigip
+  gather_facts: no
+  vars_prompt:
+    - name: "lb_password"
+      prompt: "Enter BIG-IP password"
+      private: yes
+  tasks:
+    - name: bigip_command - Run commands on a BIG-IP via tmsh
+      bigip_command:
+        server: "{{ ansible_host }}"
+        user: "testuser1"
+        password: "{{ lb_password }}"
+        command: "tmsh show sys version"
+        validate_certs: "no"
+      delegate_to: localhost
+      register: result
+    - debug: var=result.stdout_lines
+```
+
+```
+ansible-playbook xxx.yml -u testuser1 -k　 ・・・
+SSH password:
+Enter BIG-IP password:
+```
