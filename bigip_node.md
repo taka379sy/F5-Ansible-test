@@ -48,10 +48,10 @@ F5のgithub上のモジュール(~/work/f5-test/library/bigip_node.py)では、
 (server, user, password,state, partition, validate_certs) = f5_parse_arguments(module)
 ValueError: too many values to unpack
 ```
-のようにエラーとなってしまう。
+のようにエラーとなってしまう。  
 ansible2.2.0に含まれるモジュール
 (/usr/lib/python2.7/site-packages/ansible/modules/extras/network/f5/bigip_node.py
-であればエラーにならなかったので、~/work/f5-test/library/bigip_node.pyは削除します。
+であればエラーにならなかったので、~/work/f5-test/library/bigip_node.pyは削除します。  
 ⇒ソース（bigip_node.py）を以下のように修正すれば動きました。
 修正前）
     (server, user, password, state, partition, validate_certs ) = f5_parse_arguments(module)
