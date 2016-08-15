@@ -32,7 +32,7 @@ unsupported parameter for module: ntp_server
         timezone: "Japan"
       delegate_to: localhost
       register: result
-    - debug: var=result.stdout_lines
+    - debug: var=result
 ```
 ## 実行
 コマンドの実行結果は、resultを出力すればよさそうです。
