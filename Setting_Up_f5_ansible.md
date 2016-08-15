@@ -56,3 +56,8 @@ $ANSIBLE_VAULT;1.1;AES256
 # ansible-vault edit vault_vars.yml
 Vault password:
 ```
+
+PlayBookを実行するときは、--ask-vault-passのオプションをつけて、複合キーを入力するようにする。
+```
+ansible-playbook xxx.yml --ask-vault-pass
+```
