@@ -10,6 +10,7 @@ BIG-IP上で、nodeの管理を行う。
   - ansible 2.2.0
 
 ## playbookの作成
+nodeの作成・編集ができますが、その中でnodeの切り離しや、参加させたりでもできますので、サーバメンテナンスの時などの使えそう。  
 以下の例では、nodeの名前がweb1をForced offlineに変更します。
 ```
 # cd ~/work/f5-test
