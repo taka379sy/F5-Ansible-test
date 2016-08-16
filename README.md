@@ -25,8 +25,10 @@ f5-ansibleの設定は[こちら](./Setting_Up_f5_ansible.md)
 説明が"foo"になっているところは、現時点でモジュールができていない、ドキュメントもできていないようです。
 - [bigip_command - Run commands on a BIG-IP via tmsh](./bigip_command.md)  
 BIG-IP上で、tmshでコマンドを実行する。
+<!--
 - [bigip_device_dns - Manage BIG-IP device DNS settings](./bigip_device_dns.md)
 未検証
+-->
 - [bigip_device_ntp - Manage NTP servers on a BIG-IP](./bigip_device_ntp.md)  
 NTPの設定
 - [bigip_device_sshd - Manage the SSHD settings of a BIG-IP](./bigip_device_sshd.md)
