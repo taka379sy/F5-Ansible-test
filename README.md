@@ -33,6 +33,8 @@ NTPの設定
 iRuleの編集
 - [bigip_node - Manages F5 BIG-IP LTM nodes](./bigip_node.md)  
 nodeの管理を行う。
+- bigip_ucs_fetch (E) - Fetches a UCS file from remote nodes  
+エラーになって動かなかった。
 
 # 冗長構成で設定を同期させるには
 冗長構成の場合、Device GroupsのAutomatic Syncにチェックを入れることで、変更が自動で同期されます。
