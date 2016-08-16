@@ -44,24 +44,6 @@ session_state: disabled
 にすればよい。
 
 ## 実行
-F5のgithub上のモジュール(~/work/f5-test/library/bigip_node.py)では、
-```
-(server, user, password,state, partition, validate_certs) = f5_parse_arguments(module)
-ValueError: too many values to unpack
-```
-のようにエラーとなってしまう。  
-ansible2.2.0に含まれるモジュール
-(/usr/lib/python2.7/site-packages/ansible/modules/extras/network/f5/bigip_node.py
-であればエラーにならなかったので、~/work/f5-test/library/bigip_node.pyは削除します。  
-⇒ソース（bigip_node.py）を以下のように修正すれば動きました。
-```
-修正前）
-    (server, user, password, state, partition, validate_certs ) = f5_parse_arguments(module)
-
-修正後）
-    (server, user, password, state, partition, validate_certs, server_port) = f5_parse_arguments(module)
-```
-
 コマンドの実行結果は、resultを出力すればよさそうです。
 ```
 # ansible-playbook -i ~/work/f5-test/inventory/hosts -l bigip1 xxx.yml --ask-vault-pass
