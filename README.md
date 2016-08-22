@@ -3,6 +3,7 @@ BIG-IPをAnsibleで制御しようとしたところ、[Ansible公式ページ�
 github上にある開発中のもの[（リンク）](https://github.com/ansible/ansible-modules-extras/tree/devel/network/f5)にはもう少しありますが、これでも、やりたいことが出来ないと考えていたところ、
 F5社の方？が[github](https://github.com/F5Networks/f5-ansible)にAnsibleのモジュールを作成しているようであり、
 こちらの方がモジュールの数もかなりあり、こちらであればやりたいことができそうでしたので、試してみることにしました。  
+※upstream(完成版)ではないので、動いたらラッキーくらいで。 
 
 # 動作環境の設定
 動作環境の設定は[こちら](./Setting_Up_the_Environment.md)
