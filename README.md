@@ -1,8 +1,8 @@
 # 初めに
-BIG-IPをAnsibleで制御しようとしたところ、[Ansible公式ページ](http://docs.ansible.com/ansible/list_of_network_modules.html#f5)では、9つしかモジュールがありませんでした。(2016/8/5時点)  
-これだけだと、やりたいことが出来ないと考えていたところ、
-F5社が[github](https://github.com/F5Networks/f5-ansible)にAnsibleのモジュールを公開していることを知りました。  
-モジュールの数もかなりあり、こちらであればやりたいことができそうでしたので、試してみることにしました。  
+BIG-IPをAnsibleで制御しようとしたところ、[Ansible公式ページのドキュメント](http://docs.ansible.com/ansible/list_of_network_modules.html#f5)では、9つしかモジュールがありませんでした。(2016/8/5時点)  
+github上にある開発中のもの[（リンク）](https://github.com/ansible/ansible-modules-extras/tree/devel/network/f5)にはもう少しありますが、これでも、やりたいことが出来ないと考えていたところ、
+F5社の方？が[github](https://github.com/F5Networks/f5-ansible)にAnsibleのモジュールを作成しているようであり、
+こちらの方がモジュールの数もかなりあり、こちらであればやりたいことができそうでしたので、試してみることにしました。  
 
 # 動作環境の設定
 動作環境の設定は[こちら](./Setting_Up_the_Environment.md)
@@ -21,8 +21,11 @@ f5-ansibleの設定は[こちら](./Setting_Up_f5_ansible.md)
   - ansible 2.2.0
 
 ## モジュール一覧-[リンク](https://f5-ansible.readthedocs.io/en/latest/modules/list_of_all_modules.html)  
-以下のモジュールの検証をしていきます。全部を検証できる時間がないので一部のみになるかと思います。
-説明が"foo"になっているところは、現時点でモジュールができていない、ドキュメントもできていないようです。
+全部を検証できる時間がないので一部のみになるかと思います。
+説明が"foo"になっているところは、現時点でモジュールができていない、ドキュメントもできていないようです。  
+※upstream(完成版)のモジュールはansibleのgithb[（リンク）](https://github.com/ansible/ansible-modules-extras/tree/devel/network/f5)になるので、
+同名ファイルがある場合は、upstream(完成版)のモジュールを使用した方がよいです。  
+
 - [bigip_command - Run commands on a BIG-IP via tmsh](./bigip_command.md)  
 BIG-IP上で、tmshでコマンドを実行する。
 - [bigip_device_ntp - Manage NTP servers on a BIG-IP](./bigip_device_ntp.md)  
